@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue_v-bind</title>
+    <style>
+        .myClass {
+          background-color: pink;
+        }
+      </style>
+</head>
+<body>
+    <div id="app">
+        <img v-bind:src="url" width="100" height="100">
+
+        <div v-bind:style="{ fontSize: size }">
+            CSS Binding
+        </div>
+
+        <div v-bind:style="{ fontSize: size2 + 'px' }">
+            CSS Binding 2
+        </div>
+
+        <div v-bind:style="{ backgroundColor: isImportant ? 'blue' : 'green' }">
+            Conditional background color
+        </div>
+
+        <div v-bind:class="{ myClass: true }">
+            The class is set with Vue
+        </div>
+
+        <div v-bind:class="{ myClass: isImportant }">
+            The class is set conditionally to change the background color
+        </div>
+    </div>
+
+    <script src="vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
