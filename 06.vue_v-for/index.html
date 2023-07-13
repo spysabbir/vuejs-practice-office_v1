@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue_v-for</title>
+    <style>
+        #app > div {
+        border: solid black 1px;
+        width: 80%;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        }
+
+        figure {
+        width: 80px;
+        padding: 10px;
+        margin: 10px;
+        background-color: lightskyblue;
+        border-radius: 5px;
+        }
+
+        figcaption {
+        text-align: center;
+        }
+        
+        img {
+        width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ol>
+            <li v-for="x in foods">{{ x }}</li>
+        </ol>
+
+        <p v-for="(x, index) in foods">
+            {{ index }}: "{{ x }}" <br>
+        </p>
+
+        <div>
+            <figure v-for="x in manyFoods">
+              <img v-bind:src="x.url">
+              <figcaption>{{ x.name }}</figcaption>
+            </figure>
+        </div>
+
+        
+    </div>
+
+    <script src="vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
