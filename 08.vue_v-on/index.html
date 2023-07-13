@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue_events</title>
+    <style>
+        #app {
+        border: dashed black 1px;
+        display: inline-block;
+        padding-bottom: 10px;
+        }
+
+        #app > button {
+        display: block;
+        margin: auto;
+        }
+
+        #lightDiv {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        }
+
+        #lightDiv > img {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        }
+
+        #lightDiv > div {
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        width: 80%;
+        height: 80%;
+        border-radius: 50%;
+        background-color: yellow;
+        }
+
+        #color {
+        border: dashed black 1px;
+        width: 350px;
+        padding: 0 20px;
+        }
+        #color > div {
+        width: 200px;
+        height: 80px;
+        }
+        #color span {
+        font-weight: bold;
+        font-family: 'Courier New', Courier, monospace;
+        }
+
+        #image > img {
+        float: right;
+        width: 55%;
+        }
+
+        #image li:hover {
+        cursor: pointer;
+        background-color: rgb(224, 224, 224);
+        }
+
+        #image > ol {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        }
+
+        #image li {
+        padding-left: 6px;
+        border-radius: 5px;
+        width: 70px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="lightDiv">
+            <div v-show="lightOn"></div>
+            <img src="https://www.w3schools.com/vue/img_lightBulb.svg">
+        </div>
+        <button v-on:click=" lightOn =! lightOn ">Switch light</button>
+        <button @:click="lightOn = !lightOn">Switch light</button>
+
+
+        <hr>
+        <input v-on:input="inpCount++">
+        <p>{{ 'Input events occured: ' + inpCount }}</p>
+
+        <hr>
+        <div id="color">
+            <p>Move the mouse pointer over the box below</p>
+            <div v-on:mousemove="colorVal=Math.floor(Math.random()*360)"
+                v-bind:style="{backgroundColor:'hsl('+colorVal+',80%,80%)'}">
+            </div>
+        </div>
+
+        <hr>
+       <div id="image">
+            <img v-bind:src="imgUrl">
+            <ol>
+                <li v-for="food in manyFoods" v-on:click="imgUrl = food.url">
+                {{ food.name }}
+                </li>
+            </ol>
+       </div>
+    </div>
+
+    <script src="vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
