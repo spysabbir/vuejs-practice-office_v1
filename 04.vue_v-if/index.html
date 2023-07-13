@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue_v-if</title>
+    <style>
+        .myClass {
+          background-color: pink;
+        }
+      </style>
+</head>
+<body>
+    <div id="app">
+        <p v-if="typewritersInStock">
+            in stock
+        </p>
+          
+        <p v-else>
+            not in stock
+        </p>
+
+        <p v-if="typewriterCount>3">
+            In stock
+        </p>
+        
+        <p v-else-if="typewriterCount>0">
+        Very few left!
+        </p>
+        
+        <p v-else>
+        Not in stock
+        </p>
+
+        <div v-if="text.includes('sabbir')">
+            <p>My name is 'sabbir'</p>
+        </div>
+        <p v-else>My name is sovon</p>
+        
+    </div>
+
+    <script src="vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
