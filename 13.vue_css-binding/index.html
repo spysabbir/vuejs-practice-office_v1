@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue_css-binding</title>
+    <style>
+      #app > div {
+      position: relative;
+      border: dashed black 1px;
+      width: 200px;
+      height: 100px;
+      background-image: url("https://www.w3schools.com/vue/img_kangaroo.jpg");
+      background-size: cover;
+    }
+    #onTop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      z-index: 2;
+      color: white;
+    }
+    .impClass {
+      font-weight: bolder;
+    }
+    .yelClass {
+      background-color: rgb(255, 255, 136);
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+      <p>
+        <input type="range" min="0" max="1" step="0.1" v-model="opacityVal"> {{opacityVal}} (opacity value)
+      </p>
+      <div>
+        <div id="onTop" v-bind:style="{ backgroundColor: 'rgba(99,0,89,'+opacityVal+')' }">
+          Drag the range input to change opacity here.
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="impClass" v-bind:class="{ yelClass: isYellow }">This div belongs to both 'impClass' and 'yelClass'.</div>
+
+      <hr>
+
+      <div v-bind:style="{ backgroundColor: 'lightpink', 'font-weight': 'bolder' }">
+        This div tag has pink background and bold text.
+      </div>
+
+      <hr>
+
+      <div v-bind:class="[{ impClass: isImportant }, 'yelClass' ]">
+        This div tag belongs to one or two classes depending on the isImportant property.
+      </div>
+    </div>
+
+    <script src="vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
