@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue_methods</title>
+    <style>
+        #app {
+        border: black dashed 1px;
+        width: 200px;
+        padding: 0 20px 20px 20px;
+        }
+        #app > div {
+        width: 140px;
+        height: 60px;
+        background-color: lightgreen;
+        padding: 20px;
+        font-weight: bold;
+        font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p>Click on the box below:</p>
+        <div v-on:click="writeText">
+          {{ text }}
+        </div>
+
+        <hr>
+
+        <p>{{ "Moose count: " + count }}</p>
+        <button v-on:click="addMoose(1)">+1</button>
+        <button v-on:click="addMoose(5)">+5</button>
+        <button v-on:click="addMoose(-1)">-1</button>
+    </div>
+
+    <script src="vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
