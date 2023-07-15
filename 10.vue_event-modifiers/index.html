@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue_event-modifiers</title>
+    <style>
+        #app {
+        border: black dashed 1px;
+        width: 200px;
+        padding: 20px;
+        }
+        #app > div {
+        width: 160px;
+        padding: 20px;
+        cursor: default;
+        font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <button v-on:click="createAlert">Create alert</button>
+        <button v-on:click.once="createAlert">Create alert once</button> -->
+        <hr>
+        <!-- <input v-on:keyup.enter="getKey"> -->
+        <!-- <input v-on:keyup.space="getKey"> -->
+        <!-- <textarea v-on:keyup.s="createAlert"></textarea> -->
+        <!-- <textarea v-on:keydown.ctrl.s="createAlert"></textarea> -->
+        <!-- <p> {{ keyValue }} </p> -->
+        <hr>
+        <!-- <div v-on:click.right="changeColor" v-bind:style="{backgroundColor:'hsl('+bgColor+',80%,80%)'}">
+            <p>Press right mouse button here.</p>
+        </div> -->
+        <div v-on:click.right.prevent="changeColor" v-bind:style="{backgroundColor:'hsl('+bgColor+',80%,80%)'}">
+            <p>Press right mouse button here.</p>
+        </div>
+    </div>
+
+    <script src="vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
