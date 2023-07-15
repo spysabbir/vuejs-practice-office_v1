@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue_forms</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <form v-on:submit.prevent="addItem">
+            <p>Add item</p>
+            <p>Item name: <input type="text" required v-model="itemName"></p>
+            <p>How many: <input type="number" v-model="itemNumber"></p>
+            <button type="submit">Add item</button>
+        </form>
+        <hr>
+        <p>Shopping list:</p>
+        <ul>
+            <li v-for="item in shoppingList">{{item.name}}, {{item.number}}</li>
+        </ul>
+    </div>
+
+    <script src="vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
