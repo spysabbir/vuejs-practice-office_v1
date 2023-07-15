@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue_v-model</title>
+    <style>
+        #app {
+        border: dashed black 1px;
+        display: inline-block;
+        padding: 0 20px;
+        }
+        #app label, #app li {
+        padding: 5px;
+        border-radius: 5px;
+        }
+        #app label:hover, #app li:hover {
+        cursor: pointer;
+        background-color: lightgray;
+        }
+        ul {
+        list-style-type: none;
+        }
+        li {
+        margin: 2px;
+        background-color: rgb(211, 254, 211);
+        }
+        .impClass {
+        background-color: rgb(255, 202, 202);
+        }
+        #ulFound li {
+        text-decoration: line-through;
+        background-color: rgb(230,230,230);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="inpText">
+        <p> {{ inpText }} </p>
+
+        <hr>
+
+        <form>
+            <p>
+              Important item?
+              <label>
+                <input type="checkbox" v-model="important">
+                {{ important }}
+              </label>
+            </p>
+        </form>
+
+        <hr>
+
+        <form v-on:submit.prevent="addItem">
+            <p>
+              What do you need? <br>
+              <input type="text" required placeholder="item name.." v-model="itemName">
+            </p>
+            <p>
+              How many? <br>
+              <input type="number" placeholder="number of items.." v-model="itemNumber">
+            </p>
+            <p>
+              Important?
+              <label>
+                <input type="checkbox" v-model="itemImportant">
+                {{ itemImportant }}
+              </label>
+            </p>
+            <button type="submit">Add item</button>
+          </form>
+          <br>
+          <hr>
+        
+          <div>
+            <p><strong>Shopping list:</strong></p>
+            <ul id="ulToFind">
+              <li 
+                v-for="item in shoppingList" 
+                v-bind:class="{ impClass: item.important }"
+                v-on:click="item.found=!item.found"
+                v-show="!item.found">
+                  {{ item.name }}, {{ item.number}}
+              </li>
+            </ul>
+            <ul id="ulFound">
+              <li 
+                v-for="item in shoppingList" 
+                v-bind:class="{ impClass: item.important }"
+                v-on:click="item.found=!item.found"
+                v-show="item.found">
+                  {{ item.name }}, {{ item.number}}
+              </li>
+            </ul>
+          </div>
+    </div>
+
+    <script src="vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
