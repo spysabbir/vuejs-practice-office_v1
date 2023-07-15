@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue_computed-properties</title>
+    <style>
+      form {
+      border: dashed black 1px;
+      display: inline-block;
+      padding: 10px;
+    }
+    label {
+      padding: 5px;
+    }
+    label:hover {
+      cursor: pointer;
+      background-color: lightgray;
+      border-radius: 5px;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+      <form>
+        <p>
+          Important item?
+          <label>
+             <input type="checkbox" v-model="chbxVal"> 
+             {{ chbxVal }}
+          </label>
+        </p>
+      </form>
+
+      <hr>
+
+      <form>
+        <p>
+          Important item?
+          <label>
+             <input type="checkbox" v-model="chbxVal"> 
+             {{ isImportant }}
+          </label>
+        </p>
+      </form>
+    </div>
+
+    <script src="vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
