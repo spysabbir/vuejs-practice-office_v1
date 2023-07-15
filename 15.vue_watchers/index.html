@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue_watchers</title>
+    <style>
+    #app {
+      border: dashed black 1px;
+      width: 200px;
+      padding: 0 10px 10px 10px;
+    }
+    #app > div {
+      width: 200px;
+      height: 50px;
+      border: solid black 1px;
+      background-color: lightgreen;
+    }
+    #app > p {
+      font-size: large;
+      font-weight: bold;
+    }
+    .valid {
+      color: green;
+    }
+    .invalid {
+      color: red;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+      <input type="range" min="0" max="100" step="1" v-model="rangeVal">
+      <p><code>{{ rangeVal }}</code></p>
+
+      <hr>
+
+      <div v-on:click="updatePos"></div>
+      <p><code>{{ xDiff }}</code></p> 
+
+      <hr>
+
+      <input v-type="email" v-model="inpAddress">
+      <p v-bind:class="myClass">{{ feedbackText }}</p>
+    </div>
+
+    <script src="vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
